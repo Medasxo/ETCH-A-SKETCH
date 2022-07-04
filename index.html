@@ -5,17 +5,29 @@
     <meta charset="UTF-8">
     <script src = "javascript.js" defer></script>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <form>
-        Grid size: (nr. of squares per side):
+        Grid Size:
         <input type="number" id="gridSize" min="2" max="100" value ="16"> 
         <input type="submit" onclick="createGrid(); return false;">
     </form>
     <label>
-        RGB: 
-        <input type = 'checkbox' id="rgb">
+        <div class="containerBoxes">
+            <div>
+                RGB: 
+                <input type = 'checkbox' id="rgb">
+            </div>
+            <div>
+                Color:
+                <input type = 'color' id="colorPicker" value="black">
+            </div>
+        </div>
     </label>
     
      <!-- <table id = "container"></table> -->
