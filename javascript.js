@@ -1,11 +1,19 @@
+function randomRgbColor() {
+    let r = randomInteger(255);
+    let g = randomInteger(255);
+    let b = randomInteger(255);
+    return [r,g,b];
+}
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  }
 
 function createGrid(){
-    if(document.querySelector("#container") != null){
+    if(document.querySelector("#container") !== null){
         const currentGrid = document.querySelector("#container");
         document.body.removeChild(currentGrid);
     }
     let gridSize = document.getElementById("gridSize").value;
-    console.log(gridSize);
     const container = document.createElement("table");
     container.id = "container";
     document.body.appendChild(container);
@@ -19,7 +27,15 @@ function createGrid(){
             rowW.appendChild(gridCell);
             gridCell.className = "cell";
             gridCell.addEventListener("mouseover", ()=>{
-                gridCell.setAttribute('style','background-color:black');
+                const rgbButton = document.querySelector("#rgb");
+                if(rgbButton.checked){
+                    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                    gridCell.style.backgroundColor = "#" + randomColor;
+                }
+                else{
+                    gridCell.style.backgroundColor = "black";
+                }
+                
             });
         }
 
